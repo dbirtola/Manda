@@ -23,3 +23,12 @@ FVector2D UMandaMathLibrary::V2DLerp(FVector2D A, FVector2D B, float V)
 {
 	return A + V * (B - A);
 }
+
+
+KISMET_MATH_FORCEINLINE
+FRotator UMandaMathLibrary::Multiply_RotatorRotator(FRotator A, FRotator B)
+{
+	FVector C = A.Euler() * B.Euler();
+	return FRotator(C.X, C.Y, C.Z);
+	//return A * B;
+}
